@@ -1,11 +1,12 @@
-*{
+* {
     padding: 0;
     margin: 0;
     font-family: "New Tegomin", serif;
     box-sizing: border-box;
     transition: 0.2s;
 }
-body{
+
+body {
     width: 100%;
     background-image: url(pub.jpg);
     background-position: center;
@@ -13,6 +14,7 @@ body{
     background-size: cover;
     background-attachment: fixed;
 }
+
 .top-content{
     display: flex;
     background-color: hsla(0, 0%, 0%, 0.705);
@@ -22,24 +24,29 @@ body{
     justify-content: space-between;
     padding: 10px 60px;
 }
-input{
+
+input {
     display: none;
 }
-.top-content img{
+
+.top-content img {
     width: 140px;
     border-radius: 50%;
 }
-.top-content img:hover{
+
+.top-content img:hover {
     box-shadow: 0px 0px 10px goldenrod;
     transform: scale(1.1, 1.1);
 }
-.top-content ul{
+
+.top-content ul {
     list-style: none;
     display: flex;
 
     gap: 28px;
 }
-.top-content ul li button{
+
+.top-content ul li button {
     display: flex;
     text-decoration: none;
     color: wheat;
@@ -49,49 +56,72 @@ input{
     background: none;
     border: none;
 }
-.top-content ul li button:hover{
+
+.top-content ul li button:hover {
     text-shadow: 3px 3px 4px goldenrod;
     transform: scale(1.2, 1.2);
 }
 
-
-.home-content{
+.home-content {
     padding: 60px 20px;
     display: flex;
-    justify-content: space-evenly;
+    
+    flex-direction: column;
+    align-items: center;
+
+    gap: 40px;
+
 }
 
-.home-content img{
+h2, p {
+    color: wheat;
+}
+
+.home-content img {
     max-width: 420px;
     height: 380px;
     background-color: hsla(0, 0%, 0%, 0.7);
     border-radius: 50%;
 }
-.home-content .desc{
-    max-width: 620px;
-    height: 380px;
+
+.home-content > div {
+    width: 520px;
+    height: min-content;
     background-color: hsla(0, 0%, 0%, 0.7);
-    border-radius: 10%;
+    border-radius: 20px;
     padding: 15px 20px;
-    color: wheat;
     display: grid;
 }
-.home-content .desc h2{
+
+.home-content > div h2{
     font-size: 32px;
+
+    margin-bottom: 18px;
 }
-.home-content .desc p{
+
+.home-content > div p{
+    width: 100%;
+
     font-size: 18px;
+    text-align: center;
+}
+
+.home-content > .desc p {
+
     text-indent: 90px;
     text-align: justify;
 }
-.home-content .desc .buttons{
+
+.home-content > .desc > .buttons{
+    margin-top: 20px;
+
     max-width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.home-content .desc .buttons button{
+.home-content > .desc button{
     width: 200px;
     height: 55px;
     border-radius: 60%;
@@ -100,13 +130,35 @@ input{
     border: none;
     box-shadow: 0px 0px 18px rgba(244, 195, 70, 0.753);
 }
-.home-content .desc .buttons button:hover{
+
+.home-content > .desc button:hover{
     transform: scale(1.1, 1.1);
     border: 1px solid blanchedalmond;
     box-shadow: 0px 0px 18px rgb(255, 224, 19);
     cursor: pointer;
 }
 
+footer {
+    height: 80px;
+
+    background-color: hsla(0, 0%, 0%, 0.7);
+
+    text-align: center;
+}
+
+footer > div {
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+footer > div > p {
+}
+
+/* 
 @media (max-width: 1200px){
     .home-content {
         height: 100%;
@@ -193,4 +245,4 @@ input{
         width: 100px;
         height: 25px;
     }
-}
+} */

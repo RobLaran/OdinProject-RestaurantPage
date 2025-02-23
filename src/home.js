@@ -10,13 +10,15 @@ class Home {
     }
 
     render() {
-        let body = document.body;
+        let content = document.getElementById("content");
 
         this.contentContainer();
         this.homeLogo();
         this.homeDescription();
+        this.openHoursInfo();
+        this.locationInfo();
 
-        body.appendChild(this.container);
+        content.appendChild(this.container);
     }
 
     contentContainer() {
@@ -63,11 +65,69 @@ class Home {
     }
 
     openHoursInfo() {
+        this.openInfo = document.createElement("div");
+        this.openInfo.className = "open-info";
 
+        this.openInfoHeading = document.createElement("h2");
+        this.openInfoHeading.innerText = "Open Hours";
+
+        this.openHours = document.createElement("div");
+        this.openHours.className = "open-hours";
+
+        this.sundayHour = document.createElement("p");
+        this.sundayHour.innerText = "Sunday: 1:00pm-9:00pm";
+
+        this.mondayHour = document.createElement("p");
+        this.mondayHour.innerText = "Monday: 8:00am-10:00pm";
+
+        this.tuesdayHour = document.createElement("p");
+        this.tuesdayHour.innerText = "Tuesday: 8:00am-10:00pm";
+
+        this.wednesdayHour = document.createElement("p");
+        this.wednesdayHour.innerText = "Wednesday: 8:00am-10:00pm";
+
+        this.thursdayHour = document.createElement("p");
+        this.thursdayHour.innerText = "Thursday: 8:00am-10:00pm";
+
+        this.fridayHour = document.createElement("p");
+        this.fridayHour.innerText = "Friday: 8:00am-10:00pm";
+
+        this.saturdayHour = document.createElement("p");
+        this.saturdayHour.innerText = "Saturday: 1:00pm-9:00pm";
+
+        this.openHours.append(this.sundayHour);
+        this.openHours.append(this.mondayHour);
+        this.openHours.append(this.tuesdayHour);
+        this.openHours.append(this.wednesdayHour);
+        this.openHours.append(this.thursdayHour);
+        this.openHours.append(this.fridayHour);
+        this.openHours.append(this.saturdayHour);
+
+        this.openInfo.appendChild(this.openInfoHeading);
+        this.openInfo.appendChild(this.openHours);
+
+        this.container.appendChild(this.openInfo);
     }
 
     locationInfo() {
+        this.location = document.createElement("div");
+        this.location.className = "location-info";
 
+        this.locationHeading = document.createElement("h2");
+        this.locationHeading.innerHTML = "Pub's Location";
+
+        this.locationDetail = document.createElement("div");
+        this.locationDetail.className = "location-detail";
+
+        this.locationData = document.createElement("p");
+        this.locationData.innerText = "Panal street, Abgao, Maasin City, Southern Leyte, 6600";
+
+        this.locationDetail.appendChild(this.locationData);
+
+        this.location.appendChild(this.locationHeading);
+        this.location.appendChild(this.locationData);
+
+        this.container.appendChild(this.location);
     }
 }
 
