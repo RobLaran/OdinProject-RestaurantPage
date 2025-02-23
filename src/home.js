@@ -12,6 +12,14 @@ class Home {
     render() {
         let content = document.getElementById("content");
 
+        let element = content.lastElementChild
+
+        while(element) {
+            content.removeChild(element);
+
+            element = content.lastElementChild;
+        }
+
         this.contentContainer();
         this.homeLogo();
         this.homeDescription();

@@ -6,16 +6,28 @@
     transition: 0.2s;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     width: 100%;
+    min-height: 100%;
+
     background-image: url(pub.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+
+    display: grid;
+
+    grid-template-rows: 7.5rem auto 80px;
 }
 
 .top-content{
+    grid-row: 1;
+
     display: flex;
     background-color: hsla(0, 0%, 0%, 0.705);
     width: 100%;
@@ -60,6 +72,12 @@ input {
 .top-content ul li button:hover {
     text-shadow: 3px 3px 4px goldenrod;
     transform: scale(1.2, 1.2);
+}
+
+#content {
+    grid-row: 2;
+
+    height: 100%;
 }
 
 .home-content {
@@ -139,6 +157,8 @@ h2, p {
 }
 
 footer {
+    grid: 3;
+
     height: 80px;
 
     background-color: hsla(0, 0%, 0%, 0.7);
@@ -153,9 +173,6 @@ footer > div {
 
     align-items: center;
     justify-content: center;
-}
-
-footer > div > p {
 }
 
 /* 
