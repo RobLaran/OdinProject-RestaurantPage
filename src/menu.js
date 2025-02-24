@@ -92,14 +92,14 @@ export class Menu {
         this.contentContainer();
         this.heading();
         this.#container.appendChild(this.#heading);
-
-        this.category("Appetizers", this.appetizers());
-        this.category("Main Dish" , this.mainDish());
-        this.category("Grilled", this.grilled());
-        this.category("Soups & Stews", this.soups());
-        this.category("Bar Chows", this.chows());
-        this.category("Beverages", this.drinks());
-
+        
+        this.createCategory(this.appetizers());
+        this.createCategory(this.mainDish());
+        this.createCategory(this.grilled());
+        this.createCategory(this.soups());
+        this.createCategory(this.chows());
+        this.createCategory(this.drinks());
+        
         this.#contentDiv.appendChild(this.#container);
     }
 
@@ -129,46 +129,49 @@ export class Menu {
         this.#container.appendChild(this.#heading);
     }
 
-    category(name="Category name", items=[]) {
-        let category = document.createElement("div");
-        category.className = "category wrapper";
-
-        let title = document.createElement("h2");
-        title.innerText = name;
-
-        let itemsDiv = document.createElement("div");
-        itemsDiv.className = "items";
-
-        for(let i = 0; i < items.length; i++) {
-            itemsDiv.appendChild(items[i]);
+    createCategory(category=null) {
+        if(category instanceof Category) {
+            let categoryDiv = document.createElement("div");
+            categoryDiv.className = "category wrapper";
+    
+            let title = document.createElement("h2");
+            title.innerText = category.name;
+    
+            let itemsDiv = document.createElement("div");
+            itemsDiv.className = "items";
+    
+            let items = category.items();
+            for(let i = 0; i < items.length; i++) {
+                itemsDiv.appendChild(this.createItem(items[i]));
+            }
+    
+            categoryDiv.append(title, itemsDiv);
+    
+            this.#container.appendChild(categoryDiv);
         }
-
-        category.append(title, itemsDiv);
-
-        this.#container.appendChild(category);
     }
 
-    item(name="", price=0.00, img="") {
-        const item = new Item(name, price, img);
-
-        let itemDiv = document.createElement("div");
-        itemDiv.className = "item-card";
-
-        let itemImg = document.createElement("img");
-        itemImg.className = "item-img";
-        itemImg.src = item.img;
-
-        let itemName = document.createElement("p");
-        itemName.className = "item-name";
-        itemName.innerText = item.name;
-
-        let itemPrice = document.createElement("p");
-        itemPrice.className = "item-price";
-        itemPrice.innerText = "₱" + item.price;
-
-        itemDiv.append(itemImg, itemName, itemPrice);
-
-        return itemDiv;
+    createItem(item=null) {
+        if(item instanceof Item) {
+            let itemDiv = document.createElement("div");
+            itemDiv.className = "item-card";
+    
+            let itemImg = document.createElement("img");
+            itemImg.className = "item-img";
+            itemImg.src = item.img;
+    
+            let itemName = document.createElement("p");
+            itemName.className = "item-name";
+            itemName.innerText = item.name;
+    
+            let itemPrice = document.createElement("p");
+            itemPrice.className = "item-price";
+            itemPrice.innerText = "₱" + item.price;
+    
+            itemDiv.append(itemImg, itemName, itemPrice);
+    
+            return itemDiv;
+        }
     }
     
     // Appetizers:
@@ -178,15 +181,15 @@ export class Menu {
     // 4. Kropek
     // 5. Kinilaw 
     appetizers() {
-        const app = [];
+        const apps = new Category("Appetizers");
 
-        app.push(this.item("Chicharon", 80, chicharon));
-        app.push(this.item("Calamares", 120, calamares));
-        app.push(this.item("Dynamite Lumpia", 30, dynamite));
-        app.push(this.item("Kropek", 20, prawn));
-        app.push(this.item("Kinilaw", 60, kinilaw));
+        apps.addItem(new Item("Chicharon", 80, chicharon));
+        apps.addItem(new Item("Calamares", 120, calamares));
+        apps.addItem(new Item("Dynamite Lumpia", 30, dynamite));
+        apps.addItem(new Item("Kropek", 20, prawn));
+        apps.addItem(new Item("Kinilaw", 60, kinilaw));
 
-        return app;
+        return apps;
     }
 
     // Grilled (Inihaw): 
@@ -196,13 +199,13 @@ export class Menu {
     // 4. Pork BBQ Skewers
     // 5. Inihaw na Bangus 
     grilled() {
-        const grills = [];
+        const grills = new Category("Grilled");
 
-        grills.push(this.item("Inihaw na Liempo", 240, liempo));
-        grills.push(this.item("Chicken Inasal", 180, chicken));
-        grills.push(this.item("Pork Belly", 340, belly));
-        grills.push(this.item("Pork BBQ Skewers", 90, bbq));
-        grills.push(this.item("Inihaw na Bangus", 280, bangus));
+        grills.addItem(new Item("Inihaw na Liempo", 240, liempo));
+        grills.addItem(new Item("Chicken Inasal", 180, chicken));
+        grills.addItem(new Item("Pork Belly", 340, belly));
+        grills.addItem(new Item("Pork BBQ Skewers", 90, bbq));
+        grills.addItem(new Item("Inihaw na Bangus", 280, bangus));
 
         return grills;
     }
@@ -214,13 +217,13 @@ export class Menu {
     // 4. Lechon Kawali 
     // 5. Humba 
     mainDish() {
-        const dishes = [];
+        const dishes = new Category("Main Dish");
 
-        dishes.push(this.item("Buttered Garlic Shrimp", 180, shrimp));
-        dishes.push(this.item("Beef Steak", 210, steak));
-        dishes.push(this.item("Chicken Curry", 120, curry));
-        dishes.push(this.item("Lechon Kawali", 320, kawali));
-        dishes.push(this.item("Humba", 100, humba));
+        dishes.addItem(new Item("Buttered Garlic Shrimp", 180, shrimp));
+        dishes.addItem(new Item("Beef Steak", 210, steak));
+        dishes.addItem(new Item("Chicken Curry", 120, curry));
+        dishes.addItem(new Item("Lechon Kawali", 320, kawali));
+        dishes.addItem(new Item("Humba", 100, humba));
 
         return dishes;
     }
@@ -232,13 +235,13 @@ export class Menu {
     // 4. Lomi/Lugaw
     // 5. Beef/Pork Pares
     soups() {
-        const stews = [];
+        const stews = new Category("Soups & Stews");
 
-        stews.push(this.item("Sinigang na Baboy", 230, sinigang)); 
-        stews.push(this.item("Bulalo", 300, bulalo)); 
-        stews.push(this.item("Tinolang Manok", 210, tinola)); 
-        stews.push(this.item("Lomi/Lugaw", 60, lomi)); 
-        stews.push(this.item("Beef/Pork Pares", 290, pares)); 
+        stews.addItem(new Item("Sinigang na Baboy", 230, sinigang)); 
+        stews.addItem(new Item("Bulalo", 300, bulalo)); 
+        stews.addItem(new Item("Tinolang Manok", 210, tinola)); 
+        stews.addItem(new Item("Lomi/Lugaw", 60, lomi)); 
+        stews.addItem(new Item("Beef/Pork Pares", 290, pares)); 
 
         return stews;
     }
@@ -250,13 +253,13 @@ export class Menu {
     // 4. Chicken Skin Chicharon 
     // 5. Pork Isaw
     chows() {
-        const barchows = [];
+        const barchows = new Category("Bar Chows");
 
-        barchows.push(this.item("Sizzling Sisig", 130, sisig));
-        barchows.push(this.item("Crispy Pata", 320, pata));
-        barchows.push(this.item("Chicharon Bulaklak", 150, bulaklak));
-        barchows.push(this.item("Chicken Skin Chicharon", 120, chickenskin));
-        barchows.push(this.item("Pork Isaw", 110, isaw));
+        barchows.addItem(new Item("Sizzling Sisig", 130, sisig));
+        barchows.addItem(new Item("Crispy Pata", 320, pata));
+        barchows.addItem(new Item("Chicharon Bulaklak", 150, bulaklak));
+        barchows.addItem(new Item("Chicken Skin Chicharon", 120, chickenskin));
+        barchows.addItem(new Item("Pork Isaw", 110, isaw));
 
         return barchows;
     }
@@ -268,13 +271,13 @@ export class Menu {
     // 4. Calamansi/Lemon Juice
     // 5. Alcoholic Drinks
     drinks() {
-        const beverages = [];
+        const beverages = new Category("Beverages");
 
-        beverages.push(this.item("Softdrinks", 30, softdrinks));
-        beverages.push(this.item("Sago Gulaman", 70, gulaman));
-        beverages.push(this.item("Coke/Chocolate Float", 100, cokefloat));
-        beverages.push(this.item("Calamansi/Lemon Juice", 80, lemonjuice));
-        beverages.push(this.item("Alcoholic Drinks", 160, alcoholic));
+        beverages.addItem(new Item("Softdrinks", 30, softdrinks));
+        beverages.addItem(new Item("Sago Gulaman", 70, gulaman));
+        beverages.addItem(new Item("Coke/Chocolate Float", 100, cokefloat));
+        beverages.addItem(new Item("Calamansi/Lemon Juice", 80, lemonjuice));
+        beverages.addItem(new Item("Alcoholic Drinks", 160, alcoholic));
 
         return beverages;
     }
