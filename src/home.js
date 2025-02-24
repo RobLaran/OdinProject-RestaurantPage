@@ -1,4 +1,4 @@
-import homeImg from "./dar.png";
+import homeImg from "./asset/img/dar.png";
 
 export class Home {
     constructor() {

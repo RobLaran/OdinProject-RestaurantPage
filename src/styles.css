@@ -14,7 +14,7 @@ body {
     width: 100%;
     min-height: 100%;
     
-    background-image: url(pub.jpg);
+    background-image: url(asset/img/pub.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -234,13 +234,13 @@ h2, p {
     height: min-content;
 
     justify-self: center;
+
+    text-align: center;
 }
 
 .menu-content > .category >.items  > .item-card > .item-img {
     width: 220px;
     height: 220px;
-
-    background-color: chartreuse;
 }
 
 
