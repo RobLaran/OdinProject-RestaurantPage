@@ -1,10 +1,11 @@
 import "./styles.css";
 import { Home } from "./home.js";
-import { Menu, Item, Category } from "./menu.js";
-import { contact } from "./contact.js";
+import { Menu } from "./menu.js";
+import { Contact } from "./contact.js";
 
 const home = new Home();
 const menu = new Menu();
+const contact = new Contact();
 
 const homeTab = document.getElementById("home-tab");
 const menuTab = document.getElementById("menu-tab");
@@ -54,6 +55,8 @@ contactTab.addEventListener("click", () => {
     currentTab = "contact";
 
     if(currentTab === "contact") contactTab.classList.add("active");
+
+    contact.render();
 });
 
 

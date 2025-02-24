@@ -42,7 +42,7 @@ import gulaman from "./asset/img/Foods/Drinks/gulaman.jpg";
 import lemonjuice from "./asset/img/Foods/Drinks/lemonjuice.jpg";
 import softdrinks from "./asset/img/Foods/Drinks/softdrinks.jpg";
 
-export class Item {
+class Item {
     constructor(name="", price=0.00, img=null) {
         this.name = name;
         this.price = price;
@@ -50,7 +50,7 @@ export class Item {
     }
 }
 
-export class Category {
+class Category {
     #items; 
 
     constructor(name) {
@@ -87,8 +87,6 @@ export class Menu {
     }
 
     render() {
-        this.clearContent();
-
         this.contentContainer();
         this.heading();
         this.#container.appendChild(this.#heading);
@@ -103,16 +101,6 @@ export class Menu {
         this.#contentDiv.appendChild(this.#container);
     }
 
-    clearContent() {
-        let element = this.#contentDiv.lastElementChild
-
-        while(element) {
-            content.removeChild(element);
-
-            element = this.#contentDiv.lastElementChild;
-        }
-    }
-
     contentContainer() {
         this.#container = document.createElement("div");
         this.#container.className = "menu-content";
@@ -120,9 +108,10 @@ export class Menu {
 
     heading() {
         this.#heading = document.createElement("div");
-        this.#heading.className = "heading-menu wrapper";
+        this.#heading.className = "heading-menu heading wrapper";
 
         const headingText = document.createElement("h2");
+        headingText.className = "heading";
         headingText.innerText = "Pub's Menu";
 
         this.#heading.appendChild(headingText)
