@@ -181,6 +181,13 @@ h2, p {
     cursor: pointer;
 }
 
+.home-content > .open-info > .open-hours p {
+        line-height: 2.2rem;
+}
+
+.home-content > .location-info > p {
+    margin-top: 20px;
+}
 
 /* ------------------------------------------------------------------------------------- */
 
