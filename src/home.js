@@ -1,6 +1,6 @@
 import homeImg from "./dar.png";
 
-class Home {
+export class Home {
     constructor() {
         this.container = null;
         this.logo = null;
@@ -43,7 +43,7 @@ class Home {
 
     homeDescription() {
         this.description = document.createElement("div");
-        this.description.className = "desc";
+        this.description.className = "desc wrapper";
 
         this.descHeading = document.createElement("h2");
         this.descHeading.innerText = "Hi, Welcome To DarTing's Pub!";
@@ -74,7 +74,7 @@ class Home {
 
     openHoursInfo() {
         this.openInfo = document.createElement("div");
-        this.openInfo.className = "open-info";
+        this.openInfo.className = "open-info wrapper";
 
         this.openInfoHeading = document.createElement("h2");
         this.openInfoHeading.innerText = "Open Hours";
@@ -119,7 +119,7 @@ class Home {
 
     locationInfo() {
         this.location = document.createElement("div");
-        this.location.className = "location-info";
+        this.location.className = "location-info wrapper";
 
         this.locationHeading = document.createElement("h2");
         this.locationHeading.innerHTML = "Pub's Location";
@@ -139,6 +139,3 @@ class Home {
     }
 }
 
-const home = new Home();
-
-export { home }
