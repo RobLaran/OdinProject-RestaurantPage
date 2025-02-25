@@ -1,6 +1,6 @@
-import homeImg from "./dar.png";
+import homeImg from "./asset/img/dar.png";
 
-class Home {
+export class Home {
     constructor() {
         this.container = null;
         this.logo = null;
@@ -43,7 +43,7 @@ class Home {
 
     homeDescription() {
         this.description = document.createElement("div");
-        this.description.className = "desc";
+        this.description.className = "desc wrapper";
 
         this.descHeading = document.createElement("h2");
         this.descHeading.innerText = "Hi, Welcome To DarTing's Pub!";
@@ -74,7 +74,7 @@ class Home {
 
     openHoursInfo() {
         this.openInfo = document.createElement("div");
-        this.openInfo.className = "open-info";
+        this.openInfo.className = "open-info wrapper";
 
         this.openInfoHeading = document.createElement("h2");
         this.openInfoHeading.innerText = "Open Hours";
@@ -83,25 +83,25 @@ class Home {
         this.openHours.className = "open-hours";
 
         this.sundayHour = document.createElement("p");
-        this.sundayHour.innerText = "Sunday: 1:00pm-9:00pm";
+        this.sundayHour.innerText = "Sunday: 1:00pm - 9:00pm";
 
         this.mondayHour = document.createElement("p");
-        this.mondayHour.innerText = "Monday: 8:00am-10:00pm";
+        this.mondayHour.innerText = "Monday: 8:00am - 10:00pm";
 
         this.tuesdayHour = document.createElement("p");
-        this.tuesdayHour.innerText = "Tuesday: 8:00am-10:00pm";
+        this.tuesdayHour.innerText = "Tuesday: 8:00am - 10:00pm";
 
         this.wednesdayHour = document.createElement("p");
-        this.wednesdayHour.innerText = "Wednesday: 8:00am-10:00pm";
+        this.wednesdayHour.innerText = "Wednesday: 8:00am - 10:00pm";
 
         this.thursdayHour = document.createElement("p");
-        this.thursdayHour.innerText = "Thursday: 8:00am-10:00pm";
+        this.thursdayHour.innerText = "Thursday: 8:00am - 10:00pm";
 
         this.fridayHour = document.createElement("p");
-        this.fridayHour.innerText = "Friday: 8:00am-10:00pm";
+        this.fridayHour.innerText = "Friday: 8:00am - 10:00pm";
 
         this.saturdayHour = document.createElement("p");
-        this.saturdayHour.innerText = "Saturday: 1:00pm-9:00pm";
+        this.saturdayHour.innerText = "Saturday: 1:00pm - 9:00pm";
 
         this.openHours.append(this.sundayHour);
         this.openHours.append(this.mondayHour);
@@ -119,7 +119,7 @@ class Home {
 
     locationInfo() {
         this.location = document.createElement("div");
-        this.location.className = "location-info";
+        this.location.className = "location-info wrapper";
 
         this.locationHeading = document.createElement("h2");
         this.locationHeading.innerHTML = "Pub's Location";
@@ -130,15 +130,21 @@ class Home {
         this.locationData = document.createElement("p");
         this.locationData.innerText = "Panal street, Abgao, Maasin City, Southern Leyte, 6600";
 
+        let map = document.createElement("iframe");
+        map.className = "map";
+        map.src = "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d981.891254432808!2d124.84175626955093!3d10.134645999373614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDA4JzA0LjciTiAxMjTCsDUwJzMyLjYiRQ!5e0!3m2!1sen!2sph!4v1740386892534!5m2!1sen!2sph";
+        map.width = "480";
+        map.height = "450";
+        map.loading = "lazy";
+        map.referrerPolicy = "no-referrer-when-downgrade";
+
         this.locationDetail.appendChild(this.locationData);
 
         this.location.appendChild(this.locationHeading);
+        this.location.appendChild(map);
         this.location.appendChild(this.locationData);
 
         this.container.appendChild(this.location);
     }
 }
 
-const home = new Home();
-
-export { home }

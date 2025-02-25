@@ -13,17 +13,28 @@ html {
 body {
     width: 100%;
     min-height: 100%;
-
-    background-image: url(pub.jpg);
+    
+    background-image: url(asset/img/pub.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-
+    
     display: grid;
-
+    
     grid-template-rows: 7.5rem auto 80px;
 }
+
+h2, p, label {
+    color: wheat;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+
+/* 
+ * Header
+ */
 
 .top-content{
     grid-row: 1;
@@ -37,7 +48,7 @@ body {
     padding: 10px 60px;
 }
 
-input {
+.top-content > input {
     display: none;
 }
 
@@ -62,23 +73,57 @@ input {
     display: flex;
     text-decoration: none;
     color: wheat;
-    font-size: 18px;
+    font-size: 1.4rem;
     width: 100%;
 
     background: none;
     border: none;
 }
 
-.top-content ul li button:hover {
+.top-content ul li button:hover, .top-content ul li button.active {
     text-shadow: 3px 3px 4px goldenrod;
     transform: scale(1.2, 1.2);
 }
+
+
+/* ------------------------------------------------------------------------------------- */
+
+/* 
+ * Tab content
+ */
 
 #content {
     grid-row: 2;
 
     height: 100%;
 }
+
+#content .wrapper {
+    background-color: hsla(0, 0%, 0%, 0.7);
+    border-radius: 20px;
+    padding: 15px 20px;
+}
+
+#content h2 {
+    font-size: 32px;
+}
+
+#content .heading.wrapper {
+    justify-self: center;
+
+    text-align: center;
+}
+
+#content h2.heading {
+    padding: 0px 20px;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+
+/* 
+ * Home
+ */
 
 .home-content {
     padding: 60px 20px;
@@ -88,11 +133,6 @@ input {
     align-items: center;
 
     gap: 40px;
-
-}
-
-h2, p {
-    color: wheat;
 }
 
 .home-content img {
@@ -104,16 +144,10 @@ h2, p {
 
 .home-content > div {
     width: 520px;
-    height: min-content;
-    background-color: hsla(0, 0%, 0%, 0.7);
-    border-radius: 20px;
-    padding: 15px 20px;
     display: grid;
 }
 
 .home-content > div h2{
-    font-size: 32px;
-
     margin-bottom: 18px;
 }
 
@@ -156,6 +190,185 @@ h2, p {
     cursor: pointer;
 }
 
+.home-content > .open-info > .open-hours p {
+        line-height: 2.2rem;
+}
+
+.home-content > .location-info > p {
+    margin-top: 20px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+
+
+/* 
+ * Menu
+ */
+
+.menu-content {
+    height: 100%;
+    padding: 60px;
+
+    display: grid;
+
+    gap: 40px;
+}
+
+.menu-content > .category {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-rows: 2.2rem 1fr;
+
+    gap: 20px;
+}
+
+.menu-content > .category > .items {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr) );
+}
+
+.menu-content > .category > .items > .item-card {
+    width: max-content;
+    height: min-content;
+
+    justify-self: center;
+
+    text-align: center;
+}
+
+.menu-content > .category >.items  > .item-card > .item-img-div {
+    width: 220px;
+    height: 220px;
+
+    overflow: hidden;
+}
+
+.menu-content > .category >.items  > .item-card > .item-img-div img {
+    width: 100%;
+    height: 100%;
+}
+
+.menu-content > .category >.items  > .item-card > .item-img-div img:hover {
+    transform: scale(1.1);
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+
+/* 
+ * Contact
+ */
+
+ .contact-content {
+    padding: 60px;
+
+    display: grid;
+
+    gap: 40px;
+ }
+
+ .contact-form, .contact-detail {
+    width: max-content;
+
+    justify-self: center;
+
+    display: grid;
+ }
+
+ .contact-form {
+    grid-template-rows: repeat(4, minmax(1fr, auot));
+
+    gap: 20px;
+ }
+
+ .contact-form > div {
+    display: grid;
+
+    gap: 4px;
+ }
+
+ .contact-form > div > label {
+    font-size: 1.4rem;
+ }
+
+ .contact-form > div > input,
+ .contact-form > div > textarea {
+    border: none;
+    padding: 5px;
+ }
+
+ .contact-form > div > input:hover,
+ .contact-form > div > textarea:hover,
+ .contact-form > div > input:focus,
+ .contact-form > div > textarea:focus {
+    box-shadow: 0px 0px 10px goldenrod;
+ }
+ 
+
+ .contact-form > div > input {
+    line-height: 2rem;
+
+    font-size: 1.1rem;
+    
+    width: 360px;
+ }
+
+ .contact-form > div > textarea {
+    height: 140px;
+
+    font-size: 1.1rem;
+
+    resize: none;
+ }
+
+ .contact-form > div > button {
+    width: 140px;
+    height: 35px;
+
+    justify-self: center;
+
+    margin-bottom: 10px;
+
+    border-radius: 60%;
+    background-color: rgb(254, 217, 171);
+    font-size: 19px;
+    border: none;
+    box-shadow: 0px 0px 18px rgba(244, 195, 70, 0.753);
+ }
+
+.contact-form > div > button:hover{
+    transform: scale(1.1, 1.1);
+    border: 1px solid blanchedalmond;
+    box-shadow: 0px 0px 18px rgb(255, 224, 19);
+    cursor: pointer;
+}
+
+.contact-detail {
+    gap: 12px;
+}
+
+.contact-detail > div {
+    display: flex;
+}
+
+.contact-detail > div label {
+    margin-right: 4px;
+}
+
+.contact-detail > div a,
+.contact-detail > div p {
+    color: burlywood;
+
+    text-decoration: underline;
+
+    cursor: pointer;
+}
+ 
+/* ------------------------------------------------------------------------------------- */
+
 footer {
     grid: 3;
 
@@ -175,91 +388,3 @@ footer > div {
     justify-content: center;
 }
 
-/* 
-@media (max-width: 1200px){
-    .home-content {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        row-gap: 50px;
-        align-items: center;
-    }
-    .home-content .desc h2{
-        font-size: 32px;
-    }
-    .home-content .desc p{
-        font-size: 18px;
-    }
-    .home-content .desc .buttons button{
-        width: 150px;
-        height: 35px;
-    }
-}
-
-@media (max-width: 981px){
-    .top-content{
-        justify-content: center;
-    }
-    .top-content img{
-        display: block;
-        cursor: pointer;
-    }
-    .top-content ul{
-        background-color: hsla(0, 9%, 15%, 0.7);
-        position: absolute;
-        top: 7.5rem;
-        left: 0;
-        right: 0;
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-    }
-    .top-content ul li{
-        width: 100%;
-        line-height: 2.9rem;
-
-    }
-    .top-content ul li a{
-        display: flex;
-        justify-content: center;
-    }
-    .top-content ul li a:hover{
-        background-color: hsla(0, 0%, 0%, 0.7);
-        transform: none;
-    }
-    #check:checked ~ ul {
-        left: -100%;
-    }
-    .home-content img{
-        display: none;
-    }
-}
-
-@media (max-width: 600px){
-    .home-content .desc h2{
-        font-size: 29px;
-    }
-    .home-content .desc p{
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 390px){
-    .home-content .desc{
-        height: 340px;
-        border-radius: 5%;
-    }
-    .home-content .desc h2{
-        font-size: 20px;
-    }
-    .home-content .desc p{
-        font-size: 10px;
-        text-indent: 50px;
-    }
-    .home-content .desc .buttons button{
-        font-size: 12px;
-        width: 100px;
-        height: 25px;
-    }
-} */
