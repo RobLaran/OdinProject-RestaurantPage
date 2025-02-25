@@ -144,10 +144,15 @@ export class Menu {
         if(item instanceof Item) {
             let itemDiv = document.createElement("div");
             itemDiv.className = "item-card";
+
+            let imgDiv = document.createElement("div");
+            imgDiv.className = "item-img-div";
     
             let itemImg = document.createElement("img");
             itemImg.className = "item-img";
             itemImg.src = item.img;
+
+            imgDiv.append(itemImg);
     
             let itemName = document.createElement("p");
             itemName.className = "item-name";
@@ -157,7 +162,7 @@ export class Menu {
             itemPrice.className = "item-price";
             itemPrice.innerText = "₱" + item.price;
     
-            itemDiv.append(itemImg, itemName, itemPrice);
+            itemDiv.append(imgDiv, itemName, itemPrice);
     
             return itemDiv;
         }

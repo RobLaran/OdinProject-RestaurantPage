@@ -239,13 +239,20 @@ h2, p {
     text-align: center;
 }
 
-.menu-content > .category > .items > .item-card:hover {
-    transform: scale(1.1);
+.menu-content > .category >.items  > .item-card > .item-img-div {
+    width: min-content;
+    height: min-content;
+
+    overflow: hidden;
 }
 
-.menu-content > .category >.items  > .item-card > .item-img {
+.menu-content > .category >.items  > .item-card > .item-img-div img {
     width: 220px;
     height: 220px;
+}
+
+.menu-content > .category >.items  > .item-card > .item-img-div img:hover {
+    transform: scale(1.1);
 }
 
 
