@@ -29,7 +29,13 @@ h2, p, label {
     color: wheat;
 }
 
+h2 {
+    font-size: clamp(1.2rem, 5vw, 2rem);
+}
 
+p {
+    font-size: clamp(1rem, 5vw, 1.4rem);
+}
 /* ------------------------------------------------------------------------------------- */
 
 /* 
@@ -46,6 +52,8 @@ h2, p, label {
     align-items: center;
     justify-content: space-between;
     padding: 10px 60px;
+
+    position: relative;
 }
 
 .top-content > input {
@@ -70,11 +78,9 @@ h2, p, label {
 }
 
 .top-content ul li button {
-    display: flex;
     text-decoration: none;
     color: wheat;
     font-size: 1.4rem;
-    width: 100%;
 
     background: none;
     border: none;
@@ -102,10 +108,6 @@ h2, p, label {
     background-color: hsla(0, 0%, 0%, 0.7);
     border-radius: 20px;
     padding: 15px 20px;
-}
-
-#content h2 {
-    font-size: 32px;
 }
 
 #content .heading.wrapper {
@@ -143,7 +145,7 @@ h2, p, label {
 }
 
 .home-content > div {
-    width: 520px;
+    width: min(100%, 520px);
     display: grid;
 }
 
@@ -154,12 +156,10 @@ h2, p, label {
 .home-content > div p{
     width: 100%;
 
-    font-size: 18px;
     text-align: center;
 }
 
 .home-content > .desc p {
-
     text-indent: 90px;
     text-align: justify;
 }
@@ -271,7 +271,7 @@ h2, p, label {
  }
 
  .contact-form, .contact-detail {
-    width: max-content;
+    width: min(100%, 450px);
 
     justify-self: center;
 
@@ -279,7 +279,7 @@ h2, p, label {
  }
 
  .contact-form {
-    grid-template-rows: repeat(4, minmax(1fr, auot));
+    grid-template-rows: repeat(4, minmax(1fr, auto));
 
     gap: 20px;
  }
@@ -288,16 +288,20 @@ h2, p, label {
     display: grid;
 
     gap: 4px;
+
+    width: 100%;
  }
 
  .contact-form > div > label {
-    font-size: 1.4rem;
+    font-size: clamp(1rem, 5vw, 1.4rem);
  }
 
  .contact-form > div > input,
  .contact-form > div > textarea {
     border: none;
     padding: 5px;
+
+    width: 100%;
  }
 
  .contact-form > div > input:hover,
@@ -312,8 +316,7 @@ h2, p, label {
     line-height: 2rem;
 
     font-size: 1.1rem;
-    
-    width: 360px;
+
  }
 
  .contact-form > div > textarea {
@@ -356,6 +359,7 @@ h2, p, label {
 
 .contact-detail > div label {
     margin-right: 4px;
+    font-size: clamp(0.8rem, 4vw, 1.1rem);
 }
 
 .contact-detail > div a,
@@ -365,6 +369,8 @@ h2, p, label {
     text-decoration: underline;
 
     cursor: pointer;
+
+    font-size: clamp(0.6rem, 4vw, 1rem);
 }
  
 /* ------------------------------------------------------------------------------------- */
@@ -386,5 +392,69 @@ footer > div {
 
     align-items: center;
     justify-content: center;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px){
+    .top-content{
+        justify-content: center;
+
+        position: fixed;
+         
+        z-index: 1;
+    }
+
+    .top-content img{
+        display: block;
+        cursor: pointer;
+    }
+
+    .top-content ul{
+        width: 100%;
+        background-color: hsla(0, 9%, 15%, 0.7);
+        position: absolute;
+        top: 7.5rem;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        transform-origin: center;
+        gap: 0px;
+    }
+
+    .top-content ul li{
+        width: 100%;
+    }
+
+    .top-content ul li button{
+        width: 100%;
+
+        line-height: 2.6rem;
+    }
+
+    .top-content ul li button:hover,
+    .top-content ul li button.active {
+        background-color: hsla(0, 0%, 0%, 0.7);
+        transform: none;
+    }
+
+    #check:checked ~ ul {
+        left: -100%;
+    }
+
+    .home-content img{
+        display: none;
+    }
+    
+    .home-content .desc .buttons button{
+        width: 40%;
+        line-height: 1.1rem;
+        font-size: clamp(9px, 5vw, 1rem);
+    }
+
+    .home-content > .location-info > .map {
+        width: min(100%, 475px);
+        height: min(60vw, 475px);
+    }
 }
 

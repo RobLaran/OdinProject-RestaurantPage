@@ -13,6 +13,7 @@ export class Contact {
         this.contentContainer();
         this.heading();
         this.#container.appendChild(this.#heading);
+
         this.contactForm();
         this.contactDetail();
         
